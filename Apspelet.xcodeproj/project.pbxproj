@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		111A2BA317FC0DAE00140E70 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BA217FC0DAE00140E70 /* Cocoa.framework */; };
+		111A2BAD17FC0DAE00140E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */; };
+		111A2BAF17FC0DAE00140E70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BAE17FC0DAE00140E70 /* main.m */; };
+		111A2BB317FC0DAE00140E70 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BB117FC0DAE00140E70 /* Credits.rtf */; };
+		111A2BB617FC0DAE00140E70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BB517FC0DAE00140E70 /* AppDelegate.m */; };
+		111A2BB917FC0DAF00140E70 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BB717FC0DAF00140E70 /* MainMenu.xib */; };
+		111A2BC117FC0DAF00140E70 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */; };
+		111A2BC217FC0DAF00140E70 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BA217FC0DAE00140E70 /* Cocoa.framework */; };
+		111A2BCA17FC0DAF00140E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BC817FC0DAF00140E70 /* InfoPlist.strings */; };
+		111A2BCD17FC0DAF00140E70 /* ApspeletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BCC17FC0DAF00140E70 /* ApspeletTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		111A2BC317FC0DAF00140E70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 111A2B9517FC0DAE00140E70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 111A2B9D17FC0DAE00140E70;
+			remoteInfo = Apspelet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		111A2B9E17FC0DAE00140E70 /* Apspelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apspelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		111A2BA217FC0DAE00140E70 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		111A2BA517FC0DAE00140E70 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		111A2BA617FC0DAE00140E70 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		111A2BA717FC0DAE00140E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		111A2BAA17FC0DAE00140E70 /* Apspelet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Apspelet-Info.plist"; sourceTree = "<group>"; };
+		111A2BAC17FC0DAE00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		111A2BAE17FC0DAE00140E70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		111A2BB017FC0DAE00140E70 /* Apspelet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apspelet-Prefix.pch"; sourceTree = "<group>"; };
+		111A2BB217FC0DAE00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		111A2BB417FC0DAE00140E70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		111A2BB517FC0DAE00140E70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		111A2BB817FC0DAF00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApspeletTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		111A2BC717FC0DAF00140E70 /* ApspeletTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ApspeletTests-Info.plist"; sourceTree = "<group>"; };
+		111A2BC917FC0DAF00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		111A2BCB17FC0DAF00140E70 /* ApspeletTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApspeletTests.h; sourceTree = "<group>"; };
+		111A2BCC17FC0DAF00140E70 /* ApspeletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApspeletTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		111A2B9B17FC0DAE00140E70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BA317FC0DAE00140E70 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111A2BBB17FC0DAF00140E70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BC117FC0DAF00140E70 /* SenTestingKit.framework in Frameworks */,
+				111A2BC217FC0DAF00140E70 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		111A2B9317FC0DAE00140E70 = {
+			isa = PBXGroup;
+			children = (
+				111A2BA817FC0DAE00140E70 /* Apspelet */,
+				111A2BC517FC0DAF00140E70 /* ApspeletTests */,
+				111A2BA117FC0DAE00140E70 /* Frameworks */,
+				111A2B9F17FC0DAE00140E70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		111A2B9F17FC0DAE00140E70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				111A2B9E17FC0DAE00140E70 /* Apspelet.app */,
+				111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		111A2BA117FC0DAE00140E70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BA217FC0DAE00140E70 /* Cocoa.framework */,
+				111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */,
+				111A2BA417FC0DAE00140E70 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		111A2BA417FC0DAE00140E70 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BA517FC0DAE00140E70 /* AppKit.framework */,
+				111A2BA617FC0DAE00140E70 /* CoreData.framework */,
+				111A2BA717FC0DAE00140E70 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		111A2BA817FC0DAE00140E70 /* Apspelet */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BB417FC0DAE00140E70 /* AppDelegate.h */,
+				111A2BB517FC0DAE00140E70 /* AppDelegate.m */,
+				111A2BB717FC0DAF00140E70 /* MainMenu.xib */,
+				111A2BA917FC0DAE00140E70 /* Supporting Files */,
+			);
+			path = Apspelet;
+			sourceTree = "<group>";
+		};
+		111A2BA917FC0DAE00140E70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BAA17FC0DAE00140E70 /* Apspelet-Info.plist */,
+				111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */,
+				111A2BAE17FC0DAE00140E70 /* main.m */,
+				111A2BB017FC0DAE00140E70 /* Apspelet-Prefix.pch */,
+				111A2BB117FC0DAE00140E70 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		111A2BC517FC0DAF00140E70 /* ApspeletTests */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BCB17FC0DAF00140E70 /* ApspeletTests.h */,
+				111A2BCC17FC0DAF00140E70 /* ApspeletTests.m */,
+				111A2BC617FC0DAF00140E70 /* Supporting Files */,
+			);
+			path = ApspeletTests;
+			sourceTree = "<group>";
+		};
+		111A2BC617FC0DAF00140E70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BC717FC0DAF00140E70 /* ApspeletTests-Info.plist */,
+				111A2BC817FC0DAF00140E70 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		111A2B9D17FC0DAE00140E70 /* Apspelet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 111A2BD017FC0DAF00140E70 /* Build configuration list for PBXNativeTarget "Apspelet" */;
+			buildPhases = (
+				111A2B9A17FC0DAE00140E70 /* Sources */,
+				111A2B9B17FC0DAE00140E70 /* Frameworks */,
+				111A2B9C17FC0DAE00140E70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Apspelet;
+			productName = Apspelet;
+			productReference = 111A2B9E17FC0DAE00140E70 /* Apspelet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		111A2BBE17FC0DAF00140E70 /* ApspeletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 111A2BD317FC0DAF00140E70 /* Build configuration list for PBXNativeTarget "ApspeletTests" */;
+			buildPhases = (
+				111A2BBA17FC0DAF00140E70 /* Sources */,
+				111A2BBB17FC0DAF00140E70 /* Frameworks */,
+				111A2BBC17FC0DAF00140E70 /* Resources */,
+				111A2BBD17FC0DAF00140E70 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				111A2BC417FC0DAF00140E70 /* PBXTargetDependency */,
+			);
+			name = ApspeletTests;
+			productName = ApspeletTests;
+			productReference = 111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		111A2B9517FC0DAE00140E70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = ab;
+			};
+			buildConfigurationList = 111A2B9817FC0DAE00140E70 /* Build configuration list for PBXProject "Apspelet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 111A2B9317FC0DAE00140E70;
+			productRefGroup = 111A2B9F17FC0DAE00140E70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				111A2B9D17FC0DAE00140E70 /* Apspelet */,
+				111A2BBE17FC0DAF00140E70 /* ApspeletTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		111A2B9C17FC0DAE00140E70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BAD17FC0DAE00140E70 /* InfoPlist.strings in Resources */,
+				111A2BB317FC0DAE00140E70 /* Credits.rtf in Resources */,
+				111A2BB917FC0DAF00140E70 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111A2BBC17FC0DAF00140E70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BCA17FC0DAF00140E70 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		111A2BBD17FC0DAF00140E70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		111A2B9A17FC0DAE00140E70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BAF17FC0DAE00140E70 /* main.m in Sources */,
+				111A2BB617FC0DAE00140E70 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111A2BBA17FC0DAF00140E70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111A2BCD17FC0DAF00140E70 /* ApspeletTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		111A2BC417FC0DAF00140E70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 111A2B9D17FC0DAE00140E70 /* Apspelet */;
+			targetProxy = 111A2BC317FC0DAF00140E70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				111A2BAC17FC0DAE00140E70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		111A2BB117FC0DAE00140E70 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				111A2BB217FC0DAE00140E70 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		111A2BB717FC0DAF00140E70 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				111A2BB817FC0DAF00140E70 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		111A2BC817FC0DAF00140E70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				111A2BC917FC0DAF00140E70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		111A2BCE17FC0DAF00140E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		111A2BCF17FC0DAF00140E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		111A2BD117FC0DAF00140E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				INFOPLIST_FILE = "Apspelet/Apspelet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		111A2BD217FC0DAF00140E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				INFOPLIST_FILE = "Apspelet/Apspelet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		111A2BD417FC0DAF00140E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Apspelet.app/Contents/MacOS/Apspelet";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				INFOPLIST_FILE = "ApspeletTests/ApspeletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		111A2BD517FC0DAF00140E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Apspelet.app/Contents/MacOS/Apspelet";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				INFOPLIST_FILE = "ApspeletTests/ApspeletTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		111A2B9817FC0DAE00140E70 /* Build configuration list for PBXProject "Apspelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111A2BCE17FC0DAF00140E70 /* Debug */,
+				111A2BCF17FC0DAF00140E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		111A2BD017FC0DAF00140E70 /* Build configuration list for PBXNativeTarget "Apspelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111A2BD117FC0DAF00140E70 /* Debug */,
+				111A2BD217FC0DAF00140E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		111A2BD317FC0DAF00140E70 /* Build configuration list for PBXNativeTarget "ApspeletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111A2BD417FC0DAF00140E70 /* Debug */,
+				111A2BD517FC0DAF00140E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 111A2B9517FC0DAE00140E70 /* Project object */;
+}
