@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		111A2BA317FC0DAE00140E70 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BA217FC0DAE00140E70 /* Cocoa.framework */; };
-		111A2BAD17FC0DAE00140E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */; };
-		111A2BAF17FC0DAE00140E70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BAE17FC0DAE00140E70 /* main.m */; };
-		111A2BB317FC0DAE00140E70 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BB117FC0DAE00140E70 /* Credits.rtf */; };
-		111A2BB617FC0DAE00140E70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BB517FC0DAE00140E70 /* AppDelegate.m */; };
-		111A2BB917FC0DAF00140E70 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BB717FC0DAF00140E70 /* MainMenu.xib */; };
-		111A2BC117FC0DAF00140E70 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */; };
-		111A2BC217FC0DAF00140E70 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A2BA217FC0DAE00140E70 /* Cocoa.framework */; };
+		111A2BAF17FC0DAE00140E70 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BAE17FC0DAE00140E70 /* main.cpp */; };
 		111A2BCA17FC0DAF00140E70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 111A2BC817FC0DAF00140E70 /* InfoPlist.strings */; };
 		111A2BCD17FC0DAF00140E70 /* ApspeletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 111A2BCC17FC0DAF00140E70 /* ApspeletTests.m */; };
+		1130FBBF17FC10E500E90A5C /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1130FBBE17FC10E500E90A5C /* SDL2.framework */; };
+		11B863971805C720003FACE7 /* bannan.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B863961805C720003FACE7 /* bannan.png */; };
+		11B8639A1805C982003FACE7 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B863991805C982003FACE7 /* SDL2_ttf.framework */; };
+		11B8639C1805CA1D003FACE7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11B8639B1805CA1D003FACE7 /* OpenSans-Regular.ttf */; };
+		11B8639E1805DC56003FACE7 /* apa.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B8639D1805DC56003FACE7 /* apa.png */; };
+		11BA2B00180483AF00AD861B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BA2AFF180483AF00AD861B /* bg.png */; };
+		11BA2B021804861000AD861B /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BA2B011804861000AD861B /* SDL2_image.framework */; };
+		11BAB75A18052507008988AE /* apa.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BAB75918052507008988AE /* apa.png */; };
+		11BAB75C18054317008988AE /* moln.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BAB75B18054317008988AE /* moln.png */; };
+		11C2012F180E626D000D53CB /* col.png in Resources */ = {isa = PBXBuildFile; fileRef = 11C2012E180E626D000D53CB /* col.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,24 +34,26 @@
 
 /* Begin PBXFileReference section */
 		111A2B9E17FC0DAE00140E70 /* Apspelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apspelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		111A2BA217FC0DAE00140E70 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		111A2BA517FC0DAE00140E70 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		111A2BA617FC0DAE00140E70 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		111A2BA717FC0DAE00140E70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		111A2BAA17FC0DAE00140E70 /* Apspelet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Apspelet-Info.plist"; sourceTree = "<group>"; };
-		111A2BAC17FC0DAE00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		111A2BAE17FC0DAE00140E70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		111A2BB017FC0DAE00140E70 /* Apspelet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apspelet-Prefix.pch"; sourceTree = "<group>"; };
-		111A2BB217FC0DAE00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		111A2BB417FC0DAE00140E70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		111A2BB517FC0DAE00140E70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		111A2BB817FC0DAF00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		111A2BAE17FC0DAE00140E70 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApspeletTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		111A2BC717FC0DAF00140E70 /* ApspeletTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ApspeletTests-Info.plist"; sourceTree = "<group>"; };
 		111A2BC917FC0DAF00140E70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		111A2BCB17FC0DAF00140E70 /* ApspeletTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApspeletTests.h; sourceTree = "<group>"; };
 		111A2BCC17FC0DAF00140E70 /* ApspeletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApspeletTests.m; sourceTree = "<group>"; };
+		1130FBBE17FC10E500E90A5C /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		11B863961805C720003FACE7 /* bannan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannan.png; sourceTree = "<group>"; };
+		11B863991805C982003FACE7 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = /Library/Frameworks/SDL2_ttf.framework; sourceTree = "<absolute>"; };
+		11B8639B1805CA1D003FACE7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		11B8639D1805DC56003FACE7 /* apa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apa.png; sourceTree = "<group>"; };
+		11BA2AFF180483AF00AD861B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		11BA2B011804861000AD861B /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Volumes/SDL2_image/SDL2_image.framework; sourceTree = "<group>"; };
+		11BAB75918052507008988AE /* apa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apa.png; sourceTree = "<group>"; };
+		11BAB75B18054317008988AE /* moln.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moln.png; sourceTree = "<group>"; };
+		11BB2417181519060059012D /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		11BB241918151B8F0059012D /* bullets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bullets.h; sourceTree = "<group>"; };
+		11BB241A18151BA30059012D /* enemies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enemies.h; sourceTree = "<group>"; };
+		11BB241B18151CD10059012D /* player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		11C2012E180E626D000D53CB /* col.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = col.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111A2BA317FC0DAE00140E70 /* Cocoa.framework in Frameworks */,
+				1130FBBF17FC10E500E90A5C /* SDL2.framework in Frameworks */,
+				11BA2B021804861000AD861B /* SDL2_image.framework in Frameworks */,
+				11B8639A1805C982003FACE7 /* SDL2_ttf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,8 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111A2BC117FC0DAF00140E70 /* SenTestingKit.framework in Frameworks */,
-				111A2BC217FC0DAF00140E70 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,10 @@
 		111A2B9317FC0DAE00140E70 = {
 			isa = PBXGroup;
 			children = (
+				11B8639D1805DC56003FACE7 /* apa.png */,
+				11BA2B011804861000AD861B /* SDL2_image.framework */,
+				11B863991805C982003FACE7 /* SDL2_ttf.framework */,
+				1130FBBE17FC10E500E90A5C /* SDL2.framework */,
 				111A2BA817FC0DAE00140E70 /* Apspelet */,
 				111A2BC517FC0DAF00140E70 /* ApspeletTests */,
 				111A2BA117FC0DAE00140E70 /* Frameworks */,
@@ -94,29 +103,15 @@
 		111A2BA117FC0DAE00140E70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				111A2BA217FC0DAE00140E70 /* Cocoa.framework */,
-				111A2BC017FC0DAF00140E70 /* SenTestingKit.framework */,
-				111A2BA417FC0DAE00140E70 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		111A2BA417FC0DAE00140E70 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				111A2BA517FC0DAE00140E70 /* AppKit.framework */,
-				111A2BA617FC0DAE00140E70 /* CoreData.framework */,
-				111A2BA717FC0DAE00140E70 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		111A2BA817FC0DAE00140E70 /* Apspelet */ = {
 			isa = PBXGroup;
 			children = (
-				111A2BB417FC0DAE00140E70 /* AppDelegate.h */,
-				111A2BB517FC0DAE00140E70 /* AppDelegate.m */,
-				111A2BB717FC0DAF00140E70 /* MainMenu.xib */,
+				11BA2AFE180483AF00AD861B /* recources */,
+				111A2BD617FC0F0200140E70 /* code */,
 				111A2BA917FC0DAE00140E70 /* Supporting Files */,
 			);
 			path = Apspelet;
@@ -125,11 +120,6 @@
 		111A2BA917FC0DAE00140E70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				111A2BAA17FC0DAE00140E70 /* Apspelet-Info.plist */,
-				111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */,
-				111A2BAE17FC0DAE00140E70 /* main.m */,
-				111A2BB017FC0DAE00140E70 /* Apspelet-Prefix.pch */,
-				111A2BB117FC0DAE00140E70 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +141,31 @@
 				111A2BC817FC0DAF00140E70 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		111A2BD617FC0F0200140E70 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				111A2BAE17FC0DAE00140E70 /* main.cpp */,
+				11BB2417181519060059012D /* game.h */,
+				11BB241918151B8F0059012D /* bullets.h */,
+				11BB241A18151BA30059012D /* enemies.h */,
+				11BB241B18151CD10059012D /* player.h */,
+			);
+			name = code;
+			sourceTree = "<group>";
+		};
+		11BA2AFE180483AF00AD861B /* recources */ = {
+			isa = PBXGroup;
+			children = (
+				11C2012E180E626D000D53CB /* col.png */,
+				11B8639B1805CA1D003FACE7 /* OpenSans-Regular.ttf */,
+				11BAB75B18054317008988AE /* moln.png */,
+				11BAB75918052507008988AE /* apa.png */,
+				11BA2AFF180483AF00AD861B /* bg.png */,
+				11B863961805C720003FACE7 /* bannan.png */,
+			);
+			path = recources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,9 +239,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111A2BAD17FC0DAE00140E70 /* InfoPlist.strings in Resources */,
-				111A2BB317FC0DAE00140E70 /* Credits.rtf in Resources */,
-				111A2BB917FC0DAF00140E70 /* MainMenu.xib in Resources */,
+				11BA2B00180483AF00AD861B /* bg.png in Resources */,
+				11BAB75A18052507008988AE /* apa.png in Resources */,
+				11BAB75C18054317008988AE /* moln.png in Resources */,
+				11B863971805C720003FACE7 /* bannan.png in Resources */,
+				11B8639C1805CA1D003FACE7 /* OpenSans-Regular.ttf in Resources */,
+				11B8639E1805DC56003FACE7 /* apa.png in Resources */,
+				11C2012F180E626D000D53CB /* col.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111A2BAF17FC0DAE00140E70 /* main.m in Sources */,
-				111A2BB617FC0DAE00140E70 /* AppDelegate.m in Sources */,
+				111A2BAF17FC0DAE00140E70 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,30 +303,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		111A2BAB17FC0DAE00140E70 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				111A2BAC17FC0DAE00140E70 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		111A2BB117FC0DAE00140E70 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				111A2BB217FC0DAE00140E70 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		111A2BB717FC0DAF00140E70 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				111A2BB817FC0DAF00140E70 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
 		111A2BC817FC0DAF00140E70 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -373,8 +367,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/SDL2_image,
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Library/Frameworks;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Apspelet/Apspelet-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -385,8 +384,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Apspelet/Apspelet-Prefix.pch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/SDL2_image,
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Library/Frameworks;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Apspelet/Apspelet-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -442,6 +446,7 @@
 				111A2BD217FC0DAF00140E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		111A2BD317FC0DAF00140E70 /* Build configuration list for PBXNativeTarget "ApspeletTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +455,7 @@
 				111A2BD517FC0DAF00140E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
