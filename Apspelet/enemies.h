@@ -32,7 +32,7 @@ public:
         
     }
     
-    void loop(double delta_time)
+    virtual void loop(double delta_time)
     {
         pos.y += (15.0f * delta_time);
         col=pos;
