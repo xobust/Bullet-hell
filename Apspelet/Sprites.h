@@ -9,13 +9,17 @@
 #ifndef Apspelet_Sprites_h
 #define Apspelet_Sprites_h
 
+#include <string>
+#include <SDL2_ttf/SDL_ttf.h>
+#include <SDL2_image/SDL_image.h>
+
 
 class Sprites // En liten hjälp klass med statiska funktioner
 {             // Dvs funktioner alla kan nå via :: operatorn
     
 public:
     
-    static SDL_Texture * Load_texture(string path,SDL_Renderer * rend) // Laddar textur
+    static SDL_Texture * Load_texture(std::string path,SDL_Renderer * rend) // Laddar textur
     {
         SDL_Surface * temp = IMG_Load(path.c_str());
         

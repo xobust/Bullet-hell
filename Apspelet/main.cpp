@@ -32,7 +32,7 @@ using namespace std;
 
 
 #include "game.h"
-
+#include "timer.h"
 
 /*
 
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     //startar bibliotek
 
     
-    srand(time(0));
+    srand((unsigned)time(0));
     
     
     game Game;
@@ -75,10 +75,13 @@ int main(int argc, char *argv[])
     //kör igång spelet
     
     SDL_Event event;
-
     bool play = true;
+    
+    Timer fps;
                                           
     while (play) {
+        
+        fps.start();
         
         SDL_RenderClear(renderer); //töm buffer
 
@@ -103,7 +106,10 @@ int main(int argc, char *argv[])
         
         SDL_RenderPresent(renderer); //buffer -> Skärm
         
-        SDL_Delay(10); //Vänta lite så att inte du tar all cpu
+        if(( fps.get_ticks() < 1000 / 120 ) )
+        {
+            SDL_Delay( ( 1000 / 120) - fps.get_ticks()); // Max 60 bildrutor per secund
+        }
 
     }
     

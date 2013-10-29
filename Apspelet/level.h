@@ -12,145 +12,54 @@
 
 #include "bullets.h"
 #include "enemies.h"
+#include "player.h" 
 
+#include <string>
+#include <vector>
 
-struct command
+struct Command
 {
     int time;
-    string command;
+    std::string Name;
+    int type;
+    int x;
+    int y;
     
-}
+    int repeat;
+    int delay;
+};
 
 
-class level
+class Level
 {
     
-    std::vector<Enemy> enemies; 
-    std::vector<Bullet> bullets;
+    std::vector<Enemy*> enemies;
+    std::vector<Bullet*> bullets;
+    std::vector<Command> commands;
     
-    std::vector<command> commands;
+    SDL_Texture * cloud_tex;
+    SDL_Texture * rCloud_tex;
+    SDL_Texture * bullet_tex;
     
-    int last_command_time;
+    Timer level_time;
+    
+    bool fire;
+    Timer fire_timer;
     
 public:
     
-    void load(string filename)
-    {
-        
-        
-    }
+    void load(SDL_Renderer * rend, std::string mapfile);
     
-    void render(SDL_Renderer * renderer)
-    {
-        
-        SDL_RenderCopy(renderer, Bg, NULL, NULL);
-        
-        for (vector<Bullet>::iterator it = bullets.begin(); it != bullets.end(); it++) {
-            
-            //renderar alla kulor på respektive plateser
-            
-            it->render(renderer);
-            
-            
-        }
-        
-        for (vector<Enemy>::iterator it = enemies.begin(); it != enemies.end(); it++) {
-            
-            //renderar alla fienden på respektive plateser
-            it->render(renderer);
-            
-        }
-        
-        Player.render(renderer);
-        
-        if (Player.dead()) { // om du är död via medelande
-            SDL_Rect r = {Wwidth/2,Wheigt/2,200,50};
-            Sprites::render_text(font, renderer, "You are dead" , &r);
-        }
-        
-        
-        SDL_Rect r = {Wwidth-100,Wheigt-100,20,40};
-        
-        std::string s;
-        std::stringstream out;
-        out << points;
-        s = out.str();
-        
-        Sprites::render_text(font, renderer, s.c_str() , &r);
-        
-    }
+    void render(SDL_Renderer * renderer);
 
-    void exec_command(command c)
-    {
-        
-    }
+    void event(SDL_Event * event);
+
     
-    void loop()
-    {
-        for (vector<command>::iterator it = commands.begin(); it != commands.end();)
-        {
-            
-            if(last_command_time > it->time)
-            {
-                exec_command(*it);
-                commands.erase(it);
-            }
-        }
-        
-        for (vector<Bullet>::iterator it = bullets.begin(); it != bullets.end();) {
-            
-            it->loop(deltaTime);
-            
-            if(it->type != 1 && Sprites::check_collision(it->col, Player.Col_Rect))
-            {
-                Player.die();
-            }
-            
-            if(it->outside())
-            {
-                it = bullets.erase(it);
-            }else
-                it++;
-            
-        }
-        
-        for (vector<Enemy>::iterator it = enemies.begin(); it != enemies.end();)
-        {
-            
-            it->loop(deltaTime);
-            
-            for (vector<Bullet>::iterator ib = bullets.begin(); ib != bullets.end();)
-            {
-                if(Sprites::check_collision(it->col, ib->col))
-                {
-                    ib->helth--;
-                    it->helth--;
-                }
-                
-                if (ib->helth <= 0) {
-                    ib = bullets.erase(ib);
-                }else
-                {
-                    ib++;
-                }
-                
-            }
-            
-            
-            if(it->outside()||it->helth <= 0)
-            {
-                it = enemies.erase(it);
-            }else
-                it++;
-            
-        }
-        
-    }
+    void exec_command(Command c);
     
-    
-    
-    
-}
+    void loop(player * Player);
+
+};
 
 
 #endif

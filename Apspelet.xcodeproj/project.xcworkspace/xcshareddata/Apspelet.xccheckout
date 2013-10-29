@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6A430E7E-F8E7-43FF-8801-E7C3AEAD9301</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Apspelet</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9F0F2C98-80E9-4577-914D-D575E1A43597</key>
+		<string>https://github.com/xobust/Bullet-hell.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Apspelet.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9F0F2C98-80E9-4577-914D-D575E1A43597</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xobust/Bullet-hell.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9F0F2C98-80E9-4577-914D-D575E1A43597</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9F0F2C98-80E9-4577-914D-D575E1A43597</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Apspelet kopia</string>
+		</dict>
+	</array>
+</dict>
+</plist>

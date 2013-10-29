@@ -9,13 +9,26 @@
 #ifndef Apspelet_enemies_h
 #define Apspelet_enemies_h
 
+#include <SDL2/SDL.h>
+#include "timer.h"
+
+#define Wheigt 600 //fönstrets storlek
+#define Wwidth 800
+
 class Enemy
 {
-    int type;
+protected:
+ 
     SDL_Texture * texture;
+    
+    Timer time;
+    
+    float x ,y;
+    float mx, my;
     
 public:
     
+       int type;
     int helth;
     
     SDL_Rect pos;
@@ -23,40 +36,54 @@ public:
     
     
     
-    Enemy(SDL_Texture * tex, int t, SDL_Rect rec)
+    Enemy(SDL_Texture * tex, SDL_Rect rec)
     {
         texture = tex;
-        type = t;
+        type = 0;
         pos = rec;
-        helth = 1;
+        col = rec;
+        
+        mx = rec.x;
+        my = rec.y;
+        
+        x = rec.x;
+        y = rec.y;
+        helth = 5;
+        time.start();
         
     }
     
-    virtual void loop(double delta_time)
-    {
-        pos.y += (15.0f * delta_time);
-        col=pos;
-    }
+    virtual void loop();
+
     
     
     void render(SDL_Renderer * renderer)
     {
+        pos.x = (int) x;
+        pos.y = (int) y;
         SDL_RenderCopy(renderer, texture, NULL, &pos);
+    }
+    
+    
+    virtual bool dead()
+    {
+
+        return (outside()||helth <= 0);
     }
     
     
     bool outside()
     {
-        if(pos.y > Wheigt )
+        if(y > Wheigt + pos.h)
         {
             return true;
-        }else if(pos.y < 0)
+        }else if(y < 0-pos.h)
         {
             return true;
-        }else if(pos.x > Wwidth)
+        }else if(x > Wwidth + pos.w)
         {
             return true;
-        }else if (pos.x < 0)
+        }else if (x < 0-pos.w)
         {
             return true;
         }
@@ -65,12 +92,45 @@ public:
         
         /*Spaggeti version
          
-         return ((pos.y > Wheigt )||(pos.y < 0)(pos.x > Wwidth)||(pos.x < 0))
+         return ((y > Wheigt )||(y < 0)(x > Wwidth)||(x < 0))
          */
     }
     
     
 };
 
+
+class Cloud:public Enemy
+{
+
+public:
+    Cloud(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
+    {
+        type = 1;
+        helth = 3;
+        time.start();
+        
+    }
+    
+    void loop();
+    
+};
+
+class Cloud_F:public Enemy
+{
+    int stage;
+    
+public:
+    Cloud_F(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
+    {
+        type = 3;
+        helth = 10;
+        time.start();
+        stage = 0;
+    }
+    
+    void loop();
+    
+};
 
 #endif
