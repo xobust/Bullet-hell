@@ -12,42 +12,33 @@
 #include <SDL2/SDL.h>
 #include "timer.h"
 
-#define Wheigt 600 //fönstrets storlek
-#define Wwidth 800
+#include "globals.h"
+#include "Objects.h"
 
-class Enemy
+class Enemy : public Rendering_Object
 {
 protected:
- 
-    SDL_Texture * texture;
     
-    Timer time;
-    
-    float x ,y;
     float mx, my;
     
 public:
     
-       int type;
     int helth;
-    
-    SDL_Rect pos;
-    SDL_Rect col;
+    bool active;
     
     
-    
-    Enemy(SDL_Texture * tex, SDL_Rect rec)
+    Enemy(SDL_Texture * tex, SDL_Rect rec):Rendering_Object(tex,1)
     {
-        texture = tex;
-        type = 0;
-        pos = rec;
-        col = rec;
-        
+        subtype = 0;
         mx = rec.x;
         my = rec.y;
         
         x = rec.x;
         y = rec.y;
+        w = rec.w;
+        h = rec.h;
+        radius = (h/2)*0.9;
+        
         helth = 5;
         time.start();
         
@@ -55,35 +46,39 @@ public:
     
     virtual void loop();
 
-    
-    
     void render(SDL_Renderer * renderer)
     {
-        pos.x = (int) x;
-        pos.y = (int) y;
-        SDL_RenderCopy(renderer, texture, NULL, &pos);
+        SDL_RenderCopy(renderer, texture, NULL, Rect());
     }
     
+    virtual void HandleColisions( Rendering_Object * rend)
+    {
+        if(rend->type == 2 && rend->subtype == 10)
+        {
+            helth--;
+        }
+        
+        
+    }
     
     virtual bool dead()
     {
-
         return (outside()||helth <= 0);
     }
     
     
     bool outside()
     {
-        if(y > Wheigt + pos.h)
+        if(y > Wheigt + h)
         {
             return true;
-        }else if(y < 0-pos.h)
+        }else if(y < 0-h)
         {
             return true;
-        }else if(x > Wwidth + pos.w)
+        }else if(x > Wwidth + w)
         {
             return true;
-        }else if (x < 0-pos.w)
+        }else if (x < 0-w)
         {
             return true;
         }
@@ -106,10 +101,10 @@ class Cloud:public Enemy
 public:
     Cloud(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
     {
-        type = 1;
+        subtype = 1;
         helth = 3;
         time.start();
-        
+        active = false;
     }
     
     void loop();
@@ -123,10 +118,48 @@ class Cloud_F:public Enemy
 public:
     Cloud_F(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
     {
-        type = 3;
+        subtype = 3;
         helth = 10;
         time.start();
         stage = 0;
+        active = true;
+    }
+    
+    void loop();
+    
+};
+
+
+class Cloud_S:public Enemy
+{
+    int stage;
+    
+public:
+    Cloud_S(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
+    {
+        subtype = 4;
+        helth = 10;
+        time.start();
+        stage = 0;
+        active = true;
+    }
+    
+    void loop();
+    
+};
+
+class Boss:public Enemy
+{
+    int stage;
+    
+public:
+    Boss(SDL_Texture * tex, SDL_Rect rec):Enemy(tex, rec)
+    {
+        subtype = 20;
+        helth = 40;
+        time.start();
+        stage = 0;
+        active = true;
     }
     
     void loop();

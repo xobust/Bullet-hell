@@ -35,6 +35,7 @@ public:
     void unpause();
     
     //Gets the timer's time
+    int get_ticks(int time);
     int get_ticks();
     
     double seconds();

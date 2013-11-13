@@ -35,19 +35,27 @@ void Timer::stop()
     paused = false;
 }
 
-int Timer::get_ticks()
+
+int Timer::get_ticks(int t)
 {
     //If the timer is running
-     if( paused == true )
-     { //Return the number of ticks when the timer was paused
-         return pausedTicks;
-     } else {
-         //Return the current time minus the start time
-         return SDL_GetTicks() - startTicks;
-     }
+    if( paused == true )
+    { //Return the number of ticks when the timer was paused
+        return pausedTicks;
+    } else {
+        //Return the current time minus the start time
+        return t - startTicks;
+    }
     //If the timer isn't running
     return 0;
 }
+
+int Timer::get_ticks()
+{
+    return get_ticks(SDL_GetTicks());
+}
+
+
 
 double Timer::seconds()
 {
@@ -80,6 +88,8 @@ void Timer::unpause()
 }
 
 bool Timer::is_paused() { return paused; }
+
+bool Timer::is_started() {return started;}
 
 int Timer::pause_time()
 {
