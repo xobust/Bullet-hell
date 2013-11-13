@@ -15,15 +15,46 @@
 
 using namespace std;
 
-void Level::load(SDL_Renderer * rend, string mapfile)
+void Level::load(SDL_Renderer * rend, string mapfil, player * Player)
 {
     
     cloud_tex = Sprites::Load_texture("moln.png", rend);
     rCloud_tex = Sprites::Load_texture("moln red.png", rend);
     bullet_tex = Sprites::Load_texture("bullet.png", rend);
     
+    Objects.push_back(Player);
     
-    std::string   line =
+    
+    /* Old stuf std::string   line =
+    "Begin 10 2 100 0 5 5"
+    "N 70 2 700 0 5 5"
+    "N 120 2 100 0 5 5"
+    "N 130 3 200 0 2 50"
+    "N 130 3 550 0 2 50"
+    "Cos(v) 140 100 550 0 5 4"
+    "N 190 100 550 0 5 4"
+    "N 250 3 200 0 1 0"
+    "N 250 3 550 0 1 0"
+    "v=t 260 101 550 0 60 1"
+    "N 300 3 500 0 1 0"
+    "N 300 3 350 0 1 0"
+    "N 300 3 150 0 1 0"
+    "sin(y) 330 102 550 0 40 1"
+    "N 330 103 550 0 40 1"
+    "N 335 101 550 0 60 1"
+    "Boss 400 20 1 1 0 0"
+    "Polarcordinates 420 104 1 1 99 3"
+    "N 450 4 1 1 10 5"
+    "N 470 105 1 1 50 1"
+    "N 470 106 1 1 50 20"
+    "N 475 107 1 1 50 30"
+    "N 600 3 350 0 2 50"
+    "N 600 100 550 0 5 4"
+    "N 650 3 550 0 1 0"
+    "N 650 101 550 0 60 1";
+    */
+    
+    std::string line =
     "Begin 10 2 100 0 5 5"
     "N 70 2 700 0 5 5"
     "N 120 2 100 0 5 5"
@@ -32,7 +63,11 @@ void Level::load(SDL_Renderer * rend, string mapfile)
     "N 140 100 550 0 5 4"
     "N 190 100 550 0 5 4";
 
+    
+
     std::stringstream   ss(line);
+    
+    stage = "Begin";
     
     while(ss.good())
     {
@@ -50,26 +85,75 @@ void Level::load(SDL_Renderer * rend, string mapfile)
         commands.push_back(c);
     }
     
-    fire = false;
     level_time.start();
 }
+
+void Level::exec_command(Command c, player * Player)
+{
+    
+    SDL_Rect r;
+    r.x = c.x;
+    r.y = c.y;
+    
+    switch (c.type)
+    {
+        case 1:
+        {
+            
+            break;
+        }
+        case 2:
+        {
+            r.w = 40;
+            r.h = 40;
+            Cloud * cloud = new Cloud(cloud_tex, r);
+            Objects.push_back(cloud);
+            
+            break;
+        }
+        case 3:
+        {
+            r.w = 50;
+            r.h = 50;
+            Cloud_F * cloud = new Cloud_F(rCloud_tex, r);
+            Objects.push_back(cloud);
+            
+            break;
+        }
+        case 100:
+        {
+            vector<Rendering_Object*> tempvec; // avoid apending to a vector while iterating
+            
+            for (vector<Rendering_Object*>::iterator it = Objects.begin(); it != Objects.end(); it++)
+            {
+                if ((*it)->type == 1 && (*it)->subtype == 3) {
+                    for (int i=0; i<180; i+= 4) {
+                        fireball * f = new fireball(bullet_tex, (*it)->ColRect(), 3, i);
+                        tempvec.push_back(f);
+                    }
+                }
+            }
+            
+            Objects.insert(Objects.begin(), tempvec.begin(), tempvec.end());
+            
+            
+            break;
+        }
+    }
+}
+
+
 
 void Level::render(SDL_Renderer * renderer)
 {
     
-    for (vector<Bullet*>::iterator it = bullets.begin(); it != bullets.end(); it++) {
+    for (vector<Rendering_Object*>::iterator it = Objects.begin(); it != Objects.end(); it++) {
+        
         
         //renderar alla kulor på respektive plateser
         
         (*it)->render(renderer);
         
-        
-    }
-    
-    for (vector<Enemy*>::iterator it = enemies.begin(); it != enemies.end(); it++) {
-        
-        //renderar alla fienden på respektive plateser
-        (*it)->render(renderer);
         
     }
     
@@ -83,75 +167,16 @@ void Level::event(SDL_Event * event)
         case SDL_KEYDOWN:
             
             switch(event->key.keysym.sym){
-                case SDLK_z:
-                    fire = true;
-                    fire_timer.start();
-                break;
                     
 
             }
             break;
         case SDL_KEYUP:
             switch (event->key.keysym.sym) {
-                case SDLK_z:
-                    fire = false;
-                    break;
                     
-                default:
-                    break;
             }
             
             break;
-    }
-}
-
-void Level::exec_command(Command c)
-{
-    
-    SDL_Rect r;
-    r.x = c.x;
-    r.y = c.y;
-    
-    switch (c.type)
-    {
-        case 1:
-        {
-    
-            break;
-        }
-        case 2:
-        {
-            r.w = 40;
-            r.h = 40;
-            Cloud * cloud = new Cloud(cloud_tex, r);
-            enemies.push_back(cloud);
-
-            break;
-        }
-        case 3:
-        {
-            r.w = 50;
-            r.h = 50;
-            Cloud_F * cloud = new Cloud_F(rCloud_tex, r);
-            enemies.push_back(cloud);
-            
-            break;
-        }
-        case 100:
-        {
-            for (vector<Enemy*>::iterator it = enemies.begin(); it != enemies.end(); it++)
-            {
-                if ((*it)->type == 3) {
-                    for (int i=0; i<180; i+= 4) {
-                        fireball * f = new fireball(bullet_tex, (*it)->pos, 3, i);
-                        bullets.push_back(f);
-                    }
-                }
-            }
-
-            
-            break;
-        }
     }
 }
 
@@ -162,7 +187,7 @@ void Level::loop(player * Player)
     {
         if(level_time.get_ticks() > it->time*100)
         {
-            exec_command(*it);
+            exec_command(*it, Player);
             it->repeat--;
             if (it->repeat <= 0) {
                 it = commands.erase(it);
@@ -177,73 +202,38 @@ void Level::loop(player * Player)
         }
     }
     
-    for (vector<Bullet*>::iterator it = bullets.begin(); it != bullets.end();) {
-        
-        (*it)->loop();
-        
-        if((*it)->type != 1 && Sprites::check_collision((*it)->col, Player->Col_Rect))
-        {
-            Player->die();
-        }
-        
-        if((*it)->dead())
-        {
-            delete (*it);
-            it = bullets.erase(it);
-        }else
-            it++;
-        
-    }
     
-    for (vector<Enemy*>::iterator it = enemies.begin(); it != enemies.end();)
+    for (vector<Rendering_Object*>::iterator it = Objects.begin(); it != Objects.end();)
     {
         
-        (*it)->loop();
+        Rendering_Object * current_objeckt = *it;
         
-        if(Sprites::check_collision((*it)->col, Player->Col_Rect))
-        {
-            Player->die();
-        }
+        current_objeckt->loop();
+
+       for (vector<Rendering_Object*>::iterator ib = Objects.begin(); ib != Objects.end(); ib++)
+       {
+           if (it==ib) {
+               continue;
+           }
+         
+          Rendering_Object* test = *ib;
+           
+           if(current_objeckt->CheckColisions(test))
+           {
+               current_objeckt->HandleColisions(test);
+           }
+    
+       }
+    
         
-        for (vector<Bullet*>::iterator ib = bullets.begin(); ib != bullets.end();)
-        {
-            if ((*ib)->type == 1) {
-            
-            if(Sprites::check_collision((*it)->col, (*ib)->col))
-            {
-                (*ib)->helth--;
-                (*it)->helth--;
-            }
-                
-            }
-                
-            if ((*ib)->dead()) {
-                delete (*ib);
-                ib = bullets.erase(ib);
-            }else
-            {
-                ib++;
-            }
-            
-        }
-        
-        
-        if((*it)->dead())
-        {
-            delete (*it);
-            it = enemies.erase(it);
+        if (current_objeckt->dead() && current_objeckt->type != 10) {
+            it = Objects.erase(it);
         }else
+        {
             it++;
-        
+        }
     }
     
-    if(fire && fire_timer.get_ticks() > 100)
-    {
-        banana * b = new banana(Player->bullet_tex, Player->Col_Rect,1);
-        
-        bullets.push_back(b);
-        
-        fire_timer.start();
-    }
-    
+    Player->shoot(&Objects);
+
 }

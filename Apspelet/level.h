@@ -13,6 +13,7 @@
 #include "bullets.h"
 #include "enemies.h"
 #include "player.h" 
+#include "Objects.h"
 
 #include <string>
 #include <vector>
@@ -33,9 +34,10 @@ struct Command
 class Level
 {
     
-    std::vector<Enemy*> enemies;
-    std::vector<Bullet*> bullets;
+    
+    std::vector<Rendering_Object*> Objects;
     std::vector<Command> commands;
+    
     
     SDL_Texture * cloud_tex;
     SDL_Texture * rCloud_tex;
@@ -43,19 +45,18 @@ class Level
     
     Timer level_time;
     
-    bool fire;
-    Timer fire_timer;
-    
 public:
     
-    void load(SDL_Renderer * rend, std::string mapfile);
+    std::string stage;
+    
+    void load(SDL_Renderer * rend, std::string mapfile, player * Player);
     
     void render(SDL_Renderer * renderer);
 
     void event(SDL_Event * event);
 
     
-    void exec_command(Command c);
+    void exec_command(Command c, player * Player);
     
     void loop(player * Player);
 
