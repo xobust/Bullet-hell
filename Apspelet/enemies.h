@@ -14,6 +14,7 @@
 
 #include "globals.h"
 #include "Objects.h"
+#include "bullets.h"
 
 class Enemy : public Rendering_Object
 {
@@ -56,6 +57,9 @@ public:
         if(rend->type == 2 && rend->subtype == 10)
         {
             helth--;
+            Bullet * b = static_cast<Bullet*>(rend);
+            
+            b->helth--;
         }
         
         

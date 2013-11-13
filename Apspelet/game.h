@@ -23,10 +23,6 @@ class Game
     
     TTF_Font * font; //font
     
-    double deltaTime;
-    int thisTime;
-    int lastTime;
-    
 
 public:
     

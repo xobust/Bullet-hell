@@ -104,7 +104,7 @@ public:
         
         SDL_RenderCopy(rend, tex, NULL, pos);
         
-        SDL_DestroyTexture(tex);
+        SDL_DestroyTexture(tex); //Dealocation verry slow :/
     }
     
 };

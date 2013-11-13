@@ -30,10 +30,6 @@ bool Game::init(SDL_Renderer * renderer)
     
     Player.Load(renderer);
     
-    deltaTime = 0.0;
-    thisTime = 0;
-    lastTime = 0;
-    
     return true;
 }
 
@@ -97,6 +93,7 @@ void Game::render(SDL_Renderer * renderer)
     out <<"Points: "<<Player.points;
     s = out.str();
     
+    // SDL ttf fonts are to slow therfore disabeld atm
     //Sprites::render_text(font, renderer, s.c_str() , &r);
     
     out.str(std::string()); // empty the strig stream
@@ -130,10 +127,7 @@ void Game::loop()
      Update positions
      
      */
-    thisTime = SDL_GetTicks();                      //tids skillnads uträkning
-    deltaTime = (double)(thisTime - lastTime) / 100.0f;
-    lastTime = thisTime;
-    
+
     Player.loop();
     test_level.loop(&Player);
 }

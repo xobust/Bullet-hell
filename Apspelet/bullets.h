@@ -259,10 +259,7 @@ public:
     
     void HandleColisions( Rendering_Object * rend)
     {
-        if (rend->type == 1) {
-            helth--;
-        }
-        
+
     }
     
     void loop()

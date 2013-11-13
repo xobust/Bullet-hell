@@ -18,6 +18,13 @@
 #include <string>
 #include <vector>
 
+/*
+ Commands tells when to do what on the level
+ 
+ Todo: replace with better solution, maby lua
+ 
+ */
+
 struct Command
 {
     int time;
@@ -31,14 +38,22 @@ struct Command
 };
 
 
+/*
+ 
+ Level stores all info about the level 
+ 
+ */
+
+
 class Level
 {
     
-    
+    //Stores active objects
     std::vector<Rendering_Object*> Objects;
     std::vector<Command> commands;
     
     
+    //Temp texture location
     SDL_Texture * cloud_tex;
     SDL_Texture * rCloud_tex;
     SDL_Texture * bullet_tex;
@@ -55,7 +70,7 @@ public:
 
     void event(SDL_Event * event);
 
-    
+    //executes a command
     void exec_command(Command c, player * Player);
     
     void loop(player * Player);

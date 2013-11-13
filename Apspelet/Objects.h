@@ -15,6 +15,11 @@
 #include "Timer.h"
 #include "Sprites.h"
 
+/*
+ 
+ Circle colision base class
+ 
+ */
 
 class Circle
 {
@@ -70,7 +75,7 @@ public:
     
     
     /*
-     Checks for colission with another circel
+     Checks for colission with another circel 
      */
     bool colide(const Circle * Shape)
     {
@@ -82,6 +87,12 @@ public:
     
 };
 
+
+/*
+ 
+ Base class for all renderd sprites
+ 
+ */
 
 class Rendering_Object: public Circle
 {
@@ -95,8 +106,8 @@ protected:
 public:
     
     
-    int type;
-    int subtype;
+    int type; // type    1 = enemy, 2 = bullet, 10 = player
+    int subtype;  
     
     
     Rendering_Object(SDL_Texture * tex, int t):type(t),texture(tex)
@@ -104,7 +115,7 @@ public:
         time.start();
     }
     
-    Rendering_Object()
+    ~Rendering_Object()
     {
         SDL_DestroyTexture(texture);
     }

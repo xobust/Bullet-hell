@@ -9,7 +9,7 @@
 #ifndef Apspelet_globals_h
 #define Apspelet_globals_h
 
-#define Wheigt 600 //fönstrets storlek
+#define Wheigt 600 //Window size
 #define Wwidth 800
 
 
