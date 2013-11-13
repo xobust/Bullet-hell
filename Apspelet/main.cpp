@@ -70,8 +70,8 @@ int main(int argc, char *argv[])
     srand((unsigned)time(0));
     
     
-    game Game;
-    Game.init(renderer);
+    Game game;
+    game.init(renderer);
     //kör igång spelet
     
     SDL_Event event;
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
         
         SDL_RenderClear(renderer); //töm buffer
 
-        Game.loop(); //lopp
+        game.loop(); //lopp
         
         while(SDL_PollEvent(&event)) { //event
             // Skickar vidare events
@@ -96,12 +96,12 @@ int main(int argc, char *argv[])
                 break;
             }
             
-            Game.even(&event);
+            game.even(&event);
             
             
         }
         
-        Game.render(renderer); //render
+        game.render(renderer); //render
 
         
         SDL_RenderPresent(renderer); //buffer -> Skärm
@@ -113,12 +113,14 @@ int main(int argc, char *argv[])
 
     }
     
-    Game.cleanup();
+    game.cleanup();
     
     //stäng ner spelet
     IMG_Quit();
     TTF_Quit();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
-
+    
+    
+    return EXIT_SUCCESS;
 }
