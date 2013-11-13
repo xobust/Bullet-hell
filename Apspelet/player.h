@@ -9,68 +9,89 @@
 #ifndef Apspelet_player_h
 #define Apspelet_player_h
 
+#include <vector>
+
 #include "Sprites.h"
 #include "timer.h"
+#include "globals.h"
+#include "Objects.h"
 
-class player
+#include "bullets.h"
+
+
+/*
+ 
+ Player class controlls the players movement and actions
+ it is a child class to Rendering object for simplicity
+ 
+ Todo: make this a base class and creat child classes
+        for difrent characters.
+ 
+ */
+
+class player:public Rendering_Object
 {
     
-    SDL_Texture * P_Texture; //Spelarns textur
     SDL_Texture * Col_texture;
-    
-    
-    int hp;
-    int power;
-    int points;
+
     bool focus;
+    bool fire;
+    Timer fire_timer;
     
-    float xVel; // Förflyttning i x
-    float yVel; // och y led   (per 100 ms)
-    
-    float x;
-    float y;
+    float xVel; // movement in x axis 
+    float yVel; // -||- y axis (/ 100 ms)
     
     Timer delta;
-
+    Timer respawn_Time;
 
 public:
 
+    int hp;
+    int power;
+    int points;
+    
     SDL_Texture * bullet_tex;
-    SDL_Rect Col_Rect;  //colisions rectangel mot moln
-    SDL_Rect P_pos; //spelar position
+    
+    
+    player():Rendering_Object(NULL,10)
+    {
+        subtype = 1;
+    }
     
     
     bool Load(SDL_Renderer * renderer)
     {
         /*
-         Regel nummer 1 i c++
-         Sätt alltid dina värde innan du börjar
+         Textures are not loaded in constructor right now witch is 
+         abit dangerous
          
          */
         
-        P_Texture = Sprites::Load_texture("apa.png", renderer);
+        texture = Sprites::Load_texture("apa.png", renderer);
         Col_texture = Sprites::Load_texture("col.png", renderer);
         bullet_tex = Sprites::Load_texture("bannan.png", renderer);
         
-        P_pos.x = 300;
-        P_pos.y = 400;
-        P_pos.w = 80;
-        P_pos.h = 120;
         
-        Col_Rect = P_pos;
-        Col_Rect.h = 16;
-        Col_Rect.w = 16;
+        type = 10;
+        
+        x = 300;
+        y = 400;
+        w = 80;
+        h = 120;
+        
+        radius = 10;
         
         hp = 5;
+        points = 0;
+        power = 100;
         
         focus = false;
+        fire = false;
         
         xVel = 0;
         yVel = 0;
         
-        x = 300;
-        y = 400;
-        
+
         return true;
     }
     
@@ -96,6 +117,11 @@ public:
                         
                     case SDLK_LSHIFT:
                         focus = true;
+                        break;
+                        
+                    case SDLK_z:
+                        fire = true;
+                        fire_timer.start();
                         break;
                 }
                 break;
@@ -127,14 +153,28 @@ public:
                         
                         break;
                         
+                    case SDLK_z:
+                        fire = false;
+                        fire_timer.start();
+                        break;
+                        
                     default:
                         break;
                 }
                 
                 
-                break;
-                
-                
+                break;     
+        }
+    }
+    
+    
+    void HandleColisions(Rendering_Object * rend)
+    {
+        if (rend->type == 2 && rend->subtype != 10) {
+            die();
+        }else if(rend->type == 1)
+        {
+            die();
         }
     }
     
@@ -158,16 +198,16 @@ public:
   
         
         
-        if (y > Wheigt) {
-            y = Wheigt;
+        if (y > Wheigt-h/1.5f) {
+            y = Wheigt-h/1.5f;
         }else if(y < 0)
         {
             y = 0;
         }
         
-        if(x > Wwidth)
+        if(x > Wwidth-(175+w/2))
         {
-            x = Wwidth;
+            x = Wwidth-(175+w);
         }else if (x < 0)
         {
             x = 0;
@@ -182,7 +222,12 @@ public:
     
     void die()
     {
-        hp--;
+        if (!respawn_Time.is_started()) {
+            hp--;
+            respawn_Time.start();
+            SDL_SetTextureAlphaMod(texture, 150);
+
+        }
     }
     
     void loop()
@@ -190,39 +235,54 @@ public:
 
         move(delta.seconds());
         
-        P_pos.x = (int) x;
-        P_pos.y = (int) y;
-        Col_Rect.x = x + (P_pos.w/2) - 10;
-        Col_Rect.y = y + P_pos.h/2;
-        
         delta.start();
+        
+        if(respawn_Time.is_started() && respawn_Time.seconds() > 4)
+        {
+            respawn_Time.stop();
+            SDL_SetTextureAlphaMod(texture, 255);
+        }
     }
     
     void render(SDL_Renderer * renderer)
     {
-        SDL_RenderCopy(renderer, P_Texture, NULL, &P_pos); //visar spelaren
+        SDL_RenderCopy(renderer, texture, NULL, Rect()); //visar spelaren
         
+        auto r= ColRect();
         if(focus)
         {
-            SDL_Rect r = Col_Rect;
-            r.w *= 1.2f;
-            r.h *= 1.2f;
+            
             SDL_RenderCopy(renderer, Col_texture, NULL, &r);
         }
+        
+        
+        SDL_RenderDrawRect(renderer, &r);
+
     }
+    
+    void shoot(std::vector<Rendering_Object*>* level)
+    {
+        
+        if(fire && fire_timer.get_ticks() > 100)
+        {
+            banana * b = new banana(bullet_tex, ColRect());
+            
+            level->push_back(b);
+            
+            fire_timer.start();
+        }
+        
+    }
+    
+    void abilety(std::vector<Rendering_Object*> level);
+    //todo: add special abilety
     
     void cleanup()
     {
-        
-        /*
-         Regel nummer 2 i c++
-         
-         Ta alltid bort det du inte användet och
-         städa när du är klar
-         
-         */
-        
-        SDL_DestroyTexture(P_Texture);
+
+        SDL_DestroyTexture(texture);
+        SDL_DestroyTexture(Col_texture);
+        SDL_DestroyTexture(bullet_tex);
         
     }
     
