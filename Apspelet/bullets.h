@@ -11,49 +11,50 @@
 
 #include <SDL2/SDL.h>
 #include <math.h>
+#include "timer.h"
 
-struct Bullet        //moln struktur
+#include "Objects.h"
+
+struct Bullet : public Rendering_Object
 {
 protected:
-    SDL_Texture * texture;
     float rotation;
-    
-    int c_time;
-    
-    SDL_Rect pos;
-    
-    float x ,y;
     float mx, my;
     
 public:
-    int type;
     int helth;
-    SDL_Rect col;
     
-    Bullet(SDL_Texture * tex, SDL_Rect position, int t):texture(tex),pos(position), type(t)
+    Bullet(SDL_Texture * tex, SDL_Rect position, int t): Rendering_Object(tex,2)
     {
-        c_time = SDL_GetTicks();
+        subtype = t;
+        
         helth = 1;
         rotation = 0;
-        x= pos.x;
-        y = pos.y;
+        x= position.x;
+        y= position.y;
+        w= position.w;
+        h= position.h;
+        radius = (h/2)*0.8f;
+        
         my=y;
-        mx = x;
+        mx=x;
     }
     
     
     virtual void render(SDL_Renderer * renderer)
     {
-        pos.x = (int) x;
-        pos.y = (int) y;
-        SDL_RenderCopyEx(renderer, texture,NULL, &pos, rotation,NULL,SDL_FLIP_NONE);
+
+        SDL_RenderCopyEx(renderer, texture,NULL, Rect(), rotation,NULL,SDL_FLIP_NONE);
+    }
+    
+    virtual void HandleColisions( Rendering_Object * rend)
+    {
+        
     }
     
     virtual void loop()
     {
         
-        col.x= (int)x;
-        col.y= (int)y;
     }
     
     virtual bool dead()
@@ -96,12 +97,8 @@ class fireball: public Bullet
 public:
     fireball(SDL_Texture * tex, SDL_Rect position, int t, float angle):Bullet(tex, position, t)
     {
-        pos.w = 20;
-        pos.h = 20;
-        col = pos;
-        
-        col.h *= 0.9f;
-        col.w *= 0.9f;
+        w = 20;
+        h = 20;
         
         rotation = angle;
         
@@ -109,26 +106,54 @@ public:
     
     void loop()
     {
-        y = my + ((SDL_GetTicks() - c_time)/7) * cos(rotation);
-        x = mx + ((SDL_GetTicks() - c_time)/7) * sin(rotation);
-
-        
-        col.x= (int) x;
-        col.y= (int) y;
+        y = my + ((time.get_ticks())/7) * cos(rotation);
+        x = mx + ((time.get_ticks())/7) * sin(rotation);
     }
     
     
 };
 
-class banana: public Bullet
+
+class looper: public Bullet
 {
+    
+    float size;
+    
+public:
+    looper(SDL_Texture * tex, SDL_Rect position, int t, float S):Bullet(tex, position, t)
+    {
+        w = 20;
+        h = 20;
+        size = S;
+
+        
+        rotation = 0;
+        
+    };
+    
+    void loop()
+    {
+        y = my + ((time.get_ticks())/7);
+        x = mx + sin(y/100) * size;
+        
+
+    }
+    
+    
+};
+
+
+class rose: public Bullet
+{
+    int size;
 public:
     
-    banana(SDL_Texture * tex, SDL_Rect position, int t):Bullet(tex, position, t)
+    rose(SDL_Texture * tex, SDL_Rect position, int t, int s):Bullet(tex, position, t)
     {
-        pos.w = 20;
-        pos.h = 20;
-        col = pos;
+        w = 20;
+        h = 20;
+        time.start();
+        size = s;
         
         rotation = rand()%180;
     
@@ -136,11 +161,115 @@ public:
     
     void loop()
     {
-        y = my - (SDL_GetTicks() - c_time) / 3.2f;
         
+        x = mx +cos(size*time.seconds()/3)*sin(time.seconds()/3)*150;
+        y = my +cos(size*time.seconds()/3)*cos(time.seconds()/3)*150;
         
-        col.x= (int) x;
-        col.y= (int) y;
+    }
+    
+    virtual bool dead()
+    {
+        return time.seconds()>10 || helth <= 0;
+    }
+    
+    
+    
+};
+
+
+
+class seek: public Bullet
+{
+    
+public:
+    seek(SDL_Texture * tex, SDL_Rect position, int t, SDL_Rect p):Bullet(tex, position, t)
+    {
+        rotation = atan2(p.x-x, p.y-y);
+    };
+    
+    void loop()
+    {
+        y = my + ((time.get_ticks())/10) * cos(rotation);
+        x = mx + ((time.get_ticks())/10) * sin(rotation);
+        
+    }
+    
+    
+};
+
+class side: public Bullet
+{
+public:
+    
+    side(SDL_Texture * tex, SDL_Rect position, int t):Bullet(tex, position, t)
+    {
+        w = 20;
+        h = 20;
+        
+    };
+    
+    void loop()
+    {
+        
+        x = time.seconds()*50;
+        
+    }
+    
+    
+};
+
+
+class length: public Bullet
+{
+
+public:
+    
+    length(SDL_Texture * tex, SDL_Rect position, int t):Bullet(tex, position, t)
+    {
+        w = 20;
+        h = 20;
+        time.start();
+        
+    };
+    
+    void loop()
+    {
+        
+        y = time.seconds()*50;
+        
+    }
+    
+    
+};
+
+
+class banana: public Bullet
+{
+public:
+    
+    banana(SDL_Texture * tex, SDL_Rect position):Bullet(tex, position, 10)
+    {
+        w = 20;
+        h = 20;
+        radius = 18;
+        
+        rotation = rand()%180;
+        
+    };
+    
+    void HandleColisions( Rendering_Object * rend)
+    {
+        if (rend->type == 1) {
+            helth--;
+        }
+        
+    }
+    
+    void loop()
+    {
+        y = my - (time.get_ticks()) / 3.2f;
+        
+
     }
     
     

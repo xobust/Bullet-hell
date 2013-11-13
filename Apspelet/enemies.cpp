@@ -11,8 +11,7 @@
 
 void Enemy::loop()
 {
-    col.y = (int) y;
-    col.x = (int) x;
+
 }
 
 
@@ -20,8 +19,6 @@ void Cloud::loop()
 {
     y = (time.seconds() * 100) + my;
     
-    col.y = (int) y;
-    col.x = (int) x;
 }
 
 
@@ -38,12 +35,21 @@ void Cloud_F::loop()
     {
         stage++;
         time.unpause();
+        active = false;
     }
     
     
     y = (time.seconds() * 100) + my;
+}
 
-    
-    col.y = (int) y;
-    col.x = (int) x;
+void Cloud_S::loop()
+{
+    x=time.seconds()*100;
+    y = (-0.0025f)*x*x+2*x;
+}
+
+void Boss::loop()
+{
+    y=100;
+    x=350;
 }
