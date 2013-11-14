@@ -40,8 +40,8 @@
 /* Begin PBXFileReference section */
 		111A2B9E17FC0DAE00140E70 /* Apspelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apspelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApspeletTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1130FBBE17FC10E500E90A5C /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		11B1AF991828CC40003B0EE3 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		1130FBBE17FC10E500E90A5C /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
+		11B1AF991828CC40003B0EE3 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = /Library/Frameworks/SDL2_image.framework; sourceTree = "<absolute>"; };
 		11B863991805C982003FACE7 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = /Library/Frameworks/SDL2_ttf.framework; sourceTree = "<absolute>"; };
 		11B8639D1805DC56003FACE7 /* apa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apa.png; sourceTree = "<group>"; };
 		11F2BBBF1834AA3D00E2EF89 /* bullets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bullets.h; path = src/bullets.h; sourceTree = SOURCE_ROOT; };
@@ -95,9 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				11B8639D1805DC56003FACE7 /* apa.png */,
-				11B1AF991828CC40003B0EE3 /* SDL2_image.framework */,
-				11B863991805C982003FACE7 /* SDL2_ttf.framework */,
-				1130FBBE17FC10E500E90A5C /* SDL2.framework */,
 				111A2BA817FC0DAE00140E70 /* Apspelet */,
 				111A2BA117FC0DAE00140E70 /* Frameworks */,
 				111A2B9F17FC0DAE00140E70 /* Products */,
@@ -116,6 +113,9 @@
 		111A2BA117FC0DAE00140E70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				11B1AF991828CC40003B0EE3 /* SDL2_image.framework */,
+				11B863991805C982003FACE7 /* SDL2_ttf.framework */,
+				1130FBBE17FC10E500E90A5C /* SDL2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
