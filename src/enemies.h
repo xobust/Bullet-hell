@@ -10,10 +10,11 @@
 #define Apspelet_enemies_h
 
 #include <SDL2/SDL.h>
-#include "timer.h"
 
-#include "globals.h"
-#include "Objects.h"
+#include "backend/timer.h"
+#include "backend/globals.h"
+#include "backend/Objects.h"
+
 #include "bullets.h"
 
 class Enemy : public Rendering_Object

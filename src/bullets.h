@@ -11,9 +11,9 @@
 
 #include <SDL2/SDL.h>
 #include <math.h>
-#include "timer.h"
 
-#include "Objects.h"
+#include "backend/timer.h"
+#include "backend/Objects.h"
 
 struct Bullet : public Rendering_Object
 {
@@ -265,6 +265,7 @@ public:
     void loop()
     {
         y = my - (time.get_ticks()) / 3.2f;
+        rotation = time.get_ticks()%360;
         
 
     }

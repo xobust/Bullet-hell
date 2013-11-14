@@ -9,7 +9,8 @@
 #ifndef Apspelet_game_h
 #define Apspelet_game_h
 
-#include "Sprites.h"
+#include "backend/Sprites.h"
+
 #include "player.h"
 #include "level.h"
 

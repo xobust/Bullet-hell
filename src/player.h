@@ -11,10 +11,10 @@
 
 #include <vector>
 
-#include "Sprites.h"
-#include "timer.h"
-#include "globals.h"
-#include "Objects.h"
+#include "backend/Sprites.h"
+#include "backend/timer.h"
+#include "backend/globals.h"
+#include "backend/Objects.h"
 
 #include "bullets.h"
 

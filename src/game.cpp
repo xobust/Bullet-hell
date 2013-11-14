@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 ab. All rights reserved.
 //
 
+#include "backend/globals.h"
 #include "game.h"
-#include "globals.h"
+
 #include <sstream>
 
 using namespace std;
