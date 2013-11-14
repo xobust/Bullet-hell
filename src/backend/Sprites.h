@@ -32,6 +32,7 @@ public:
     }
     
     
+    
     // Fill circle by gpwiki.org
     /*
      * SDL_Surface 32-bit circle-fill algorithm without using trig
@@ -88,6 +89,51 @@ public:
         }
     }
     
+    
+    static bool BoxCollision(SDL_Rect A, SDL_Rect B)  // kollar efter kolisioner
+    {                                                          // kod lånad från stack owerflow
+        
+        //The sides of the rectangles                         (Orkade inte skriva egen)
+        int leftA, leftB;
+        int rightA, rightB;
+        
+        int topA, topB;
+        int bottomA, bottomB;
+        
+        
+        //Calculate the sides of rect A
+        leftA = A.x;
+        rightA = A.x + A.w;
+        topA = A.y;
+        bottomA = A.y + A.h;
+        
+        //Calculate the sides of rect B
+        
+        leftB = B.x;
+        rightB = B.x + B.w;
+        topB = B.y;
+        bottomB = B.y + B.h;
+        
+        
+        //If any of the sides from A are outside of B
+        
+        if( bottomA <= topB )
+            return false;
+        else if( topA >= bottomB )
+            return false;
+        
+        else if( rightA <= leftB )
+            return false;
+        
+        else if( leftA >= rightB )
+            return false;
+    
+        
+        //If none of the sides from A are outside B
+        return true;
+        
+    }
+
     
     static void render_text(TTF_Font * font, SDL_Renderer * rend,const char * text ,SDL_Rect * pos) // skriver en text
     {

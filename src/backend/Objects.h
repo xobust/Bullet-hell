@@ -2,7 +2,7 @@
 //  Objects.h
 //  Apspelet
 //
-//  Created by Alexander Bladh on 2013-11-05.
+//  Created by Alexander Bladh on 20131105.
 //  Copyright (c) 2013 ab. All rights reserved.
 //
 
@@ -37,7 +37,7 @@ protected:
     int radius;
     
     //Distance between two given points in a cordinate systen
-    float euclideanDistance(float x, float y,float xb,float yb)
+    float euclideanDistance(float x, float y,float xb,float yb) const
     {
         
         return sqrt( pow(xb-x,2) + pow(yb-y,2) );
@@ -61,7 +61,7 @@ public:
         return rect;
     }
     
-    SDL_Rect ColRect()
+    SDL_Rect ColRect() const 
     {
         SDL_Rect r;
         
@@ -74,16 +74,18 @@ public:
     }
     
     
+    
     /*
      Checks for colission with another circel 
      */
-    bool colide(const Circle * Shape)
+    bool colide(const Circle * Shape) const
     {
         
-        return ( euclideanDistance(x+w/2, y+h/2, Shape->x+Shape->w/2 ,Shape->y+Shape->h/2)
+        return (euclideanDistance(x+w/2, y+h/2, Shape->x+Shape->w/2 ,Shape->y+Shape->h/2)
                 <= (radius + Shape->radius) );
         
     }
+      
     
 };
 
@@ -120,7 +122,7 @@ public:
         SDL_DestroyTexture(texture);
     }
 
-    virtual void loop() = 0;
+    virtual void loop(int time) = 0;
     virtual void render(SDL_Renderer * renderer) = 0;
     
     
@@ -131,10 +133,12 @@ public:
     
     virtual bool dead()=0;
     
-    
-    bool CheckColisions( Rendering_Object * Obj)
+    bool CheckColisions( Rendering_Object * Obj) const
     {
-        return Circle::colide(Obj);
+        //if (Sprites::BoxCollision(Circle::ColRect(), Obj->Circle::ColRect()))
+            return Circle::colide(Obj);
+        //else
+        //    return false;
     };
     
 };
