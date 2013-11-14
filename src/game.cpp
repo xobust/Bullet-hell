@@ -129,7 +129,7 @@ void Game::loop()
      
      */
 
-    Player.loop();
+    Player.loop(SDL_GetTicks());
     test_level.loop(&Player);
 }
 

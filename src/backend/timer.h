@@ -38,6 +38,7 @@ public:
     int get_ticks(int time);
     int get_ticks();
     
+    double seconds(int time);
     double seconds();
     
     int pause_time();

@@ -52,7 +52,7 @@ public:
         
     }
     
-    virtual void loop()
+    virtual void loop(int ticks)
     {
         
     }
@@ -104,10 +104,10 @@ public:
         
     };
     
-    void loop()
+    void loop(int ticks)
     {
-        y = my + ((time.get_ticks())/7) * cos(rotation);
-        x = mx + ((time.get_ticks())/7) * sin(rotation);
+        y = my + ((time.get_ticks(ticks))/7) * cos(rotation);
+        x = mx + ((time.get_ticks(ticks))/7) * sin(rotation);
     }
     
     
@@ -131,9 +131,9 @@ public:
         
     };
     
-    void loop()
+    void loop(int ticks)
     {
-        y = my + ((time.get_ticks())/7);
+        y = my + ((time.get_ticks(ticks))/7);
         x = mx + sin(y/100) * size;
         
 
@@ -159,7 +159,7 @@ public:
     
     };
     
-    void loop()
+    void loop(int ticks)
     {
         
         x = mx +cos(size*time.seconds()/3)*sin(time.seconds()/3)*150;
@@ -187,10 +187,10 @@ public:
         rotation = atan2(p.x-x, p.y-y);
     };
     
-    void loop()
+    void loop(int ticks)
     {
-        y = my + ((time.get_ticks())/10) * cos(rotation);
-        x = mx + ((time.get_ticks())/10) * sin(rotation);
+        y = my + ((time.get_ticks(ticks))/10) * cos(rotation);
+        x = mx + ((time.get_ticks(ticks))/10) * sin(rotation);
         
     }
     
@@ -208,7 +208,7 @@ public:
         
     };
     
-    void loop()
+    void loop(int ticks)
     {
         
         x = time.seconds()*50;
@@ -232,7 +232,7 @@ public:
         
     };
     
-    void loop()
+    void loop(int ticks)
     {
         
         y = time.seconds()*50;
@@ -262,10 +262,10 @@ public:
 
     }
     
-    void loop()
+    void loop(int ticks)
     {
-        y = my - (time.get_ticks()) / 3.2f;
-        rotation = time.get_ticks()%360;
+        y = my - (time.get_ticks(ticks)) / 3.2f;
+        rotation = time.get_ticks(ticks)%360;
         
 
     }

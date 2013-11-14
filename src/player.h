@@ -230,14 +230,14 @@ public:
         }
     }
     
-    void loop()
+    void loop(int ticks)
     {
 
         move(delta.seconds());
         
         delta.start();
         
-        if(respawn_Time.is_started() && respawn_Time.seconds() > 4)
+        if(respawn_Time.is_started() && respawn_Time.seconds(ticks) > 4)
         {
             respawn_Time.stop();
             SDL_SetTextureAlphaMod(texture, 255);

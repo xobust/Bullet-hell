@@ -55,7 +55,10 @@ int Timer::get_ticks()
     return get_ticks(SDL_GetTicks());
 }
 
-
+double Timer::seconds(int ticks)
+{
+    return get_ticks(ticks)/1000.0f;
+}
 
 double Timer::seconds()
 {

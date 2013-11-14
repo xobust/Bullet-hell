@@ -202,13 +202,14 @@ void Level::loop(player * Player)
         }
     }
     
+    int time = SDL_GetTicks();
     
     for (vector<Rendering_Object*>::iterator it = Objects.begin(); it != Objects.end();)
     {
         
         Rendering_Object * current_objeckt = *it;
         
-        current_objeckt->loop();
+        current_objeckt->loop(time);
 
        for (vector<Rendering_Object*>::iterator ib = Objects.begin(); ib != Objects.end(); ib++)
        {

@@ -46,7 +46,7 @@ public:
         
     }
     
-    virtual void loop();
+    virtual void loop(int ticks);
 
     void render(SDL_Renderer * renderer)
     {
@@ -112,7 +112,7 @@ public:
         active = false;
     }
     
-    void loop();
+    void loop(int ticks);
     
 };
 
@@ -130,7 +130,7 @@ public:
         active = true;
     }
     
-    void loop();
+    void loop(int ticks);
     
 };
 
@@ -149,7 +149,7 @@ public:
         active = true;
     }
     
-    void loop();
+    void loop(int ticks);
     
 };
 
@@ -167,7 +167,7 @@ public:
         active = true;
     }
     
-    void loop();
+    void loop(int ticks);
     
 };
 

@@ -9,20 +9,20 @@
 #include "enemies.h"
 
 
-void Enemy::loop()
+void Enemy::loop(int ticks)
 {
 
 }
 
 
-void Cloud::loop()
+void Cloud::loop(int ticks)
 {
     y = (time.seconds() * 100) + my;
     
 }
 
 
-void Cloud_F::loop()
+void Cloud_F::loop(int ticks)
 {
     if(time.seconds()>1 && stage == 0)
     {
@@ -42,13 +42,13 @@ void Cloud_F::loop()
     y = (time.seconds() * 100) + my;
 }
 
-void Cloud_S::loop()
+void Cloud_S::loop(int ticks)
 {
     x=time.seconds()*100;
     y = (-0.0025f)*x*x+2*x;
 }
 
-void Boss::loop()
+void Boss::loop(int ticks)
 {
     y=100;
     x=350;
