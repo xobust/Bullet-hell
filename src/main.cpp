@@ -19,6 +19,7 @@
 #include <SDL2/SDL.h>               //Graafik, event.. osv
 #include <SDL2_ttf/SDL_ttf.h>       //Typsnit, text
 #include <SDL2_image/SDL_image.h>   //Ladda bilder i olika format
+#include <SDL2/SDL_opengl.h>
 
 #include <string>   //Bra text strängar
 #include <vector>   //Vector smarata listor
@@ -42,8 +43,6 @@ using namespace std;
  neråt plus.
  
 */
-
-
 
 
 int main(int argc, char *argv[])

@@ -12,17 +12,21 @@
 #include <fstream>
 #include <sstream>
 
+#include "backend/Resource_Manager.h"
+
 
 using namespace std;
 
-void Level::load(SDL_Renderer * rend, string mapfil, player * Player)
+void Level::load(SDL_Renderer * rend, string mapfil)
 {
     
-    cloud_tex = Sprites::Load_texture("moln.png", rend);
-    rCloud_tex = Sprites::Load_texture("moln red.png", rend);
-    bullet_tex = Sprites::Load_texture("bullet.png", rend);
+    cloud_tex = ResourceManager::getInstance()->loadTexture("moln.png", rend);
+    rCloud_tex = ResourceManager::getInstance()->loadTexture("moln red.png", rend);
+    bullet_tex = ResourceManager::getInstance()->loadTexture("bullet.png", rend);
     
-    Objects.push_back(Player);
+    Player.Load(rend);
+    
+    Objects.push_back(&Player);
     
     
     /* Old stuf std::string   line =
@@ -88,7 +92,7 @@ void Level::load(SDL_Renderer * rend, string mapfil, player * Player)
     level_time.start();
 }
 
-void Level::exec_command(Command c, player * Player)
+void Level::exec_command(Command c)
 {
     
     SDL_Rect r;
@@ -161,7 +165,7 @@ void Level::render(SDL_Renderer * renderer)
 
 void Level::event(SDL_Event * event)
 {
-    
+    Player.event(event);
     switch(event->type)
     {
         case SDL_KEYDOWN:
@@ -180,14 +184,14 @@ void Level::event(SDL_Event * event)
     }
 }
 
-void Level::loop(player * Player)
+void Level::loop()
 {
     
     for (vector<Command>::iterator it = commands.begin(); it != commands.end();)
     {
         if(level_time.get_ticks() > it->time*100)
         {
-            exec_command(*it, Player);
+            exec_command(*it);
             it->repeat--;
             if (it->repeat <= 0) {
                 it = commands.erase(it);
@@ -234,7 +238,6 @@ void Level::loop(player * Player)
             it++;
         }
     }
-    
-    Player->shoot(&Objects);
+    Player.shoot(&Objects);
 
 }

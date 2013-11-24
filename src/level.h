@@ -61,20 +61,22 @@ class Level
     
     Timer level_time;
     
+    player Player;
+    
 public:
     
     std::string stage;
     
-    void load(SDL_Renderer * rend, std::string mapfile, player * Player);
+    void load(SDL_Renderer * rend, std::string mapfile);
     
     void render(SDL_Renderer * renderer);
 
     void event(SDL_Event * event);
 
     //executes a command
-    void exec_command(Command c, player * Player);
+    void exec_command(Command c);
     
-    void loop(player * Player);
+    void loop();
 
 };
 

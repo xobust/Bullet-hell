@@ -9,15 +9,12 @@
 #ifndef Apspelet_game_h
 #define Apspelet_game_h
 
-#include "backend/Sprites.h"
-
 #include "player.h"
 #include "level.h"
 
 
 class Game
 {
-    player Player;// todo: move this to level
     Level test_level;
     
     SDL_Texture * Bg;

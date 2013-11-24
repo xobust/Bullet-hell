@@ -11,7 +11,7 @@
 
 #include <vector>
 
-#include "backend/Sprites.h"
+#include "backend/Resource_Manager.h"
 #include "backend/timer.h"
 #include "backend/globals.h"
 #include "backend/Objects.h"
@@ -67,9 +67,9 @@ public:
          
          */
         
-        texture = Sprites::Load_texture("apa.png", renderer);
-        Col_texture = Sprites::Load_texture("col.png", renderer);
-        bullet_tex = Sprites::Load_texture("bannan.png", renderer);
+        texture = ResourceManager::getInstance()->loadTexture("apa.png", renderer);
+        Col_texture = ResourceManager::getInstance()->loadTexture("col.png", renderer);
+        bullet_tex = ResourceManager::getInstance()->loadTexture("bannan.png", renderer);
         
         
         type = 10;
