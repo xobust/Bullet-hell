@@ -35,13 +35,7 @@ protected:
     float h;
     
     int radius;
-    
-    //Distance between two given points in a cordinate systen
-    float euclideanDistance(float x, float y,float xb,float yb) const
-    {
-        
-        return sqrt( pow(xb-x,2) + pow(yb-y,2) );
-    }
+
     
 public:
     
@@ -81,8 +75,18 @@ public:
     bool colide(const Circle * Shape) const
     {
         
-        return (euclideanDistance(x+w/2, y+h/2, Shape->x+Shape->w/2 ,Shape->y+Shape->h/2)
-                <= (radius + Shape->radius) );
+        float dx = (Shape->x + Shape->w/2 ) - (x+w/2);
+        float dy = (Shape->y + Shape->h/2) - (y+h/2);
+        float drad = Shape->radius + radius;
+        
+        if ( (dx * dx) + (dy * dy) < (drad * drad) )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
     }
       
@@ -119,7 +123,7 @@ public:
     
     ~Rendering_Object()
     {
-        SDL_DestroyTexture(texture);
+        
     }
 
     virtual void loop(int time) = 0;
