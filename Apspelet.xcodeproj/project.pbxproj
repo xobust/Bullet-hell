@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111CF8071839514900446973 /* Resource_Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 111CF8061839514900446973 /* Resource_Manager.cpp */; };
 		1130FBBF17FC10E500E90A5C /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1130FBBE17FC10E500E90A5C /* SDL2.framework */; };
 		11B1AF9A1828CC40003B0EE3 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B1AF991828CC40003B0EE3 /* SDL2_image.framework */; };
 		11B8639A1805C982003FACE7 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B863991805C982003FACE7 /* SDL2_ttf.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		111A2B9E17FC0DAE00140E70 /* Apspelet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apspelet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		111A2BBF17FC0DAF00140E70 /* ApspeletTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApspeletTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		111CF8061839514900446973 /* Resource_Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Resource_Manager.cpp; sourceTree = "<group>"; };
+		1128DE61183D47FB00BB157C /* singletondestroyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singletondestroyer.h; sourceTree = "<group>"; };
 		1130FBBE17FC10E500E90A5C /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
 		11B1AF991828CC40003B0EE3 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = /Library/Frameworks/SDL2_image.framework; sourceTree = "<absolute>"; };
 		11B863991805C982003FACE7 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = /Library/Frameworks/SDL2_ttf.framework; sourceTree = "<absolute>"; };
@@ -65,7 +68,7 @@
 		11F2BBEB1834AC0500E2EF89 /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 		11F2BBEC1834AC0500E2EF89 /* Objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Objects.h; sourceTree = "<group>"; };
 		11F2BBED1834AC0500E2EF89 /* Sprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprites.h; sourceTree = "<group>"; };
-		11F2BBEE1834AC0500E2EF89 /* Texture_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture_Manager.h; sourceTree = "<group>"; };
+		11F2BBEE1834AC0500E2EF89 /* Resource_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource_Manager.h; sourceTree = "<group>"; };
 		11F2BBEF1834AC0500E2EF89 /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
 		11F2BBF01834AC0500E2EF89 /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,9 +179,11 @@
 				11F2BBEB1834AC0500E2EF89 /* globals.h */,
 				11F2BBEC1834AC0500E2EF89 /* Objects.h */,
 				11F2BBED1834AC0500E2EF89 /* Sprites.h */,
-				11F2BBEE1834AC0500E2EF89 /* Texture_Manager.h */,
+				1128DE61183D47FB00BB157C /* singletondestroyer.h */,
+				11F2BBEE1834AC0500E2EF89 /* Resource_Manager.h */,
 				11F2BBEF1834AC0500E2EF89 /* timer.cpp */,
 				11F2BBF01834AC0500E2EF89 /* timer.h */,
+				111CF8061839514900446973 /* Resource_Manager.cpp */,
 			);
 			name = backend;
 			path = src/backend;
@@ -303,6 +308,7 @@
 				11F2BBCA1834AA3D00E2EF89 /* level.cpp in Sources */,
 				11F2BBCB1834AA3D00E2EF89 /* main.cpp in Sources */,
 				11F2BBF11834AC0500E2EF89 /* timer.cpp in Sources */,
+				111CF8071839514900446973 /* Resource_Manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +382,7 @@
 		111A2BD117FC0DAF00140E70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,6 +408,7 @@
 		111A2BD217FC0DAF00140E70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

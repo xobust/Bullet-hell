@@ -31,36 +31,6 @@
             endingLineNumber = "118"
             landmarkName = "main(int argc, char *argv[])"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "Apspelet"
-                  urlString = "file://localhost/Users/alexander/Documents/lastbilar/Apspelet%20kopia/Apspelet/main.cpp"
-                  timestampString = "404467979.630132"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "431">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "main"
-                  moduleName = "Apspelet"
-                  urlString = "file://localhost/Users/alexander/Documents/lastbilar/Apspelet%20kopia/Apspelet/main.cpp"
-                  timestampString = "404467979.630769"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "612">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -76,6 +46,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "Level::load(SDL_Renderer * rend, string mapfile)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/level.cpp"
+            timestampString = "406906840.788069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "Level::load(SDL_Renderer * rend, string mapfil)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
